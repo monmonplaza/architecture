@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +10,8 @@
     <title>Architecture Landing Page</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
+
+<body>
 
 <header class="header">
     <div class="container">
@@ -47,56 +51,69 @@
       <div class="page-contact__form">
           <form action="">
             <div class="form__group">
-                <input type="text" required>
                 <label for="">Fullname</label>
+                <input type="text" required>
+              
             </div>
             <div class="form__group">
-                <input type="text" required>
                 <label for="">Email Address</label>
+                <input type="text" required>
+                
             </div>
 
             <div class="form__group">
-                <input type="text" required>
                 <label for="">Phone/Mobile</label>
-            </div>
-
-            <div class="form__group">
                 <input type="text" required>
-                <label for="">Subject</label>
+            
             </div>
 
             <div class="form__group">
-                <textarea></textarea>
+                <label for="">Subject</label>
+                <input type="text" required>
+               
+            </div>
+
+            <div class="form__group message">
                 <label for="">Message</label>
+                <textarea></textarea>
+               
             </div>
             <button class="btn btn--dark">Submit</button>
           </form>
+
+          <div class="location">
+              <div class="location__block">
+                  <h3>Manila</h3>
+                  <p>Courtyard Dr, Makati, <br/>
+                    1223 Metro Manila<br/>
+                    (024) 123 1321</p>
+              </div>
+
+              <div class="location__block">
+                <h3>Laguna</h3>
+                <p>National Hwy, <br />
+                    San Pablo City, 4000  <br/>
+                    (049) 123 1234</p>
+            </div>
+
+            <div class="location__block">
+                <h3>Batangas</h3>
+                <p>Pastor Village, <br/>
+                    Brgy Batangas, 4200 <br />
+                    (043) 123 1234</p>
+            </div>
+          </div>
       </div>
     </div>
 </section>
 
 
-<section class="get-qoute">
-    <div class="container">
-        <div class="get-qoute__wrapper">
-            <div class="get-qoute__content">
-                <h3 class="get-qoute__header">Let's Talk</h3>
-                <p class="get-qoute__body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam distinctio dolorum delectus asperiores sapiente soluta nesciunt illum impedit maiores vero velit fuga facere commodi eveniet aliquam voluptatem iure, facilis et.
-                </p>
-            </div>
-
-            <a href="#" class="btn btn--transparent">Get Quote</a>
-            <p class="outline__text">Quote</p>
-        </div>
-    </div>
-</section>
 
 
 
 <footer class="page-footer">
     <div class="container">
-        <div class="page-footer__img align--right">
+        <div class="page-footer__img align--right lg--only" >
             <img src="./images/footer-img.jpg" alt="">
         </div>
 
@@ -143,3 +160,7 @@
         <p>&copy; 2021 All Right Reserve</p>
     </div>
 </footer>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

@@ -117,7 +117,8 @@ p {
     padding: 2rem;
     background-color: var(--light);
     transition: 0.5s ease;
-    margin-top: 5rem;
+    margin-top: 8rem;
+    z-index: 9999;
   }
 
   nav ul {
@@ -489,6 +490,12 @@ p {
   display: none;
 }
 
+@media screen and (max-width: 520px) {
+  .lg--only {
+    display: none;
+  }
+}
+
 /* CONTACT */
 
 .contact {
@@ -546,8 +553,8 @@ p {
 
 .form__group textarea:focus + label,
 .form__group textarea:valid + label,
-.form__group input:required:focus + label,
-.form__group input:required:valid + label {
+.form__group input:focus + label,
+.form__group input:valid + label {
   top: -1.5rem;
   font-size: 1rem;
   opacity: 1;
@@ -575,7 +582,7 @@ p {
 }
 
 .page-banner__wrapper h1 {
-  font-size: 7rem;
+  font-size: clamp(5rem, 5vw, 7rem);
   line-height: 1;
 }
 
@@ -584,6 +591,22 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+@media screen and (max-width: 520px) {
+  .page-banner {
+    margin: 5rem 0 5rem;
+  }
+  .page-banner__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .page-banner img {
+    position: static;
+    width: 100%;
+    height: 45rem;
+    object-fit: cover;
+  }
 }
 /* LETS TALK */
 .get-qoute {
@@ -604,12 +627,24 @@ p {
 }
 
 .get-qoute h3 {
-  font-size: 8rem;
+  font-size: clamp(5rem, 5vw, 8rem);
 }
 
 .get-qoute a {
   margin-top: 5rem;
   font-size: 1.4rem;
+}
+
+@media screen and (max-width: 520px) {
+  .get-qoute {
+    padding: 5rem 0;
+  }
+  .get-qoute__wrapper {
+    flex-direction: column;
+  }
+  .get-qoute a {
+    margin-top: 2rem;
+  }
 }
 
 .outline__text {
@@ -657,7 +692,70 @@ p {
   color: var(--light);
 }
 
-/********** PAGES STYLE - General END**********/
+/* FOOTER SECTION */
+
+.page-footer__wrapper {
+  grid-template-columns: 1fr 1fr;
+  margin: 8rem 0;
+}
+
+.page-footer__navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer__nav {
+  position: static;
+  padding: 2rem 0;
+}
+.footer__nav h3 {
+  margin-bottom: 2rem;
+}
+
+.footer__nav a {
+  color: var(--dark);
+}
+
+@media screen and (max-width: 520px) {
+  .page-footer__wrapper {
+    grid-template-columns: 1fr;
+    margin: 2rem 0;
+  }
+
+  .footer__nav {
+    margin-top: 0;
+  }
+
+  .page-footer__navigation {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* NEWSLETTER SECTION */
+
+.newletter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.newletter button {
+  position: absolute;
+  right: 0;
+  top: -1.5rem;
+}
+
+@media screen and (max-width: 520px) {
+  .newletter button {
+    position: relative;
+  }
+  .footer__email {
+    margin-top: 2rem;
+    align-self: flex-start !important;
+  }
+}
+
+/********** PAGES STYLE - General END **********/
 
 /* PAGE STYLE - Services */
 
@@ -667,6 +765,15 @@ p {
 
 .page-services__wrapper {
   grid-template-columns: 40rem 1fr;
+}
+@media screen and (max-width: 520px) {
+  .page-services__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .page-services {
+    padding: 5rem 0;
+  }
 }
 
 .accordion__block {
@@ -679,35 +786,25 @@ p {
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--darker);
   margin-bottom: 2rem;
+  cursor: pointer;
+}
+.accordion__block .accordion__header img {
+  transform: rotate(180deg);
+  transition: 0.5s ease;
+}
+.accordion__body {
+  max-height: 0;
+  height: auto;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
 }
 
-.page-footer__wrapper {
-  grid-template-columns: 1fr 1fr;
-  margin: 8rem 0;
+.accordion__block.show .accordion__body {
+  max-height: 20rem;
 }
 
-.page-footer__navigation {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.footer__nav h3 {
-  margin-bottom: 2rem;
-}
-
-.footer__nav a {
-  color: var(--dark);
-}
-
-.newletter {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.newletter button {
-  position: absolute;
-  right: 0;
-  top: -1.5rem;
+.accordion__block.show .accordion__header img {
+  transform: rotate(0);
 }
 
 .footer__email {
@@ -737,6 +834,14 @@ p {
   overflow: hidden;
 }
 
+@media screen and (max-width: 520px) {
+  .page-about {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
 .page-about__block {
   max-width: 60rem;
   width: 100%;
@@ -762,4 +867,52 @@ p {
 
 .page-about.mission .outline__text {
   right: 55rem;
+}
+
+/* CONTACT PAGE */
+.page-contact {
+  padding: 10rem 0;
+}
+.page-contact__form {
+  display: grid;
+  grid-template-columns: 1fr 20rem;
+  grid-gap: 15rem;
+}
+
+.page-contact__form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 6rem;
+}
+
+.page-contact__form form .message {
+  grid-column: 1 / 3;
+}
+
+.page-contact__form .form__group label {
+  position: static;
+}
+.page-contact__form .form__group textarea {
+  min-height: 16rem;
+}
+
+.page-contact__form form button {
+  margin-top: -5rem;
+}
+
+.location__block {
+  margin-bottom: 5rem;
+}
+@media screen and (max-width: 520px) {
+  .page-contact__form {
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
+  }
+  .page-contact__form form {
+    display: unset;
+  }
+
+  .page-contact__form form button {
+    margin-top: -2rem;
+  }
 }
